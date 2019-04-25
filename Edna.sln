@@ -1,49 +1,53 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28809.33
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplatesManager", "TemplatesManager\TemplatesManager.csproj", "{EA7A2F9F-5E85-4B0A-9E1E-7EF6BA37B3E8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssignmentsManager", "AssignmentManager\AssignmentsManager.csproj", "{5DB49B6F-27BE-492A-9874-27169EDA7CAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureResourcesManager", "AzureResourcesManager\AzureResourcesManager.csproj", "{C89BE745-FD9E-4F8F-ADF7-7144C0221161}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureResourcesManager", "AzureResourcesManager\AzureResourcesManager.csproj", "{C89BE745-FD9E-4F8F-ADF7-7144C0221161}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodebasesManager", "CodebasesManager\CodebasesManager.csproj", "{A2F9AFC9-2885-45C8-A4B9-82F6CEB32E9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodebasesManager", "CodebasesManager\CodebasesManager.csproj", "{A2F9AFC9-2885-45C8-A4B9-82F6CEB32E9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TutorialsManager", "TutorialsManager\TutorialsManager.csproj", "{E7884C49-F565-42FF-BFDE-B8166749B25D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutorialsManager", "TutorialsManager\TutorialsManager.csproj", "{E7884C49-F565-42FF-BFDE-B8166749B25D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollaborationsManager", "CollaborationsManager\CollaborationsManager.csproj", "{4B7217B3-F292-49FF-99BC-6B0F74E270DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollaborationsManager", "CollaborationsManager\CollaborationsManager.csproj", "{4B7217B3-F292-49FF-99BC-6B0F74E270DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoGradersManager", "AutoGradersManager\AutoGradersManager.csproj", "{4D7C82B5-2692-4F78-AF5A-24A62E8F91A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoGradersManager", "AutoGradersManager\AutoGradersManager.csproj", "{4D7C82B5-2692-4F78-AF5A-24A62E8F91A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntiCheatsManager", "AntiCheatsManager\AntiCheatsManager.csproj", "{40C73D08-2F9D-4BF3-8298-F0F9BB7A4C30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntiCheatsManager", "AntiCheatsManager\AntiCheatsManager.csproj", "{40C73D08-2F9D-4BF3-8298-F0F9BB7A4C30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubmissionsManager", "SubmissionsManager\SubmissionsManager.csproj", "{E2BAB225-D015-4FDE-90B5-018C219E1B4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubmissionsManager", "SubmissionsManager\SubmissionsManager.csproj", "{E2BAB225-D015-4FDE-90B5-018C219E1B4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssignmentsAccessor", "AssignmentsAccessor\AssignmentsAccessor.csproj", "{BE47D51C-BE39-4BF4-AB14-9F2621BB8476}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssignmentsAccessor", "AssignmentsAccessor\AssignmentsAccessor.csproj", "{BE47D51C-BE39-4BF4-AB14-9F2621BB8476}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetsAccessor", "BudgetsAccessor\BudgetsAccessor.csproj", "{DA6A0AD2-3B9A-4A3F-B4E4-43E53599A77D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetsAccessor", "BudgetsAccessor\BudgetsAccessor.csproj", "{DA6A0AD2-3B9A-4A3F-B4E4-43E53599A77D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentsAccessor", "StudentsAccessor\StudentsAccessor.csproj", "{AC4C1E7C-553A-482B-8123-83A9F519E03C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentsAccessor", "StudentsAccessor\StudentsAccessor.csproj", "{AC4C1E7C-553A-482B-8123-83A9F519E03C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitAccessor", "GitAccessor\GitAccessor.csproj", "{A273B97E-CC77-4E89-AD0D-1424C92A9CA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GitAccessor", "GitAccessor\GitAccessor.csproj", "{A273B97E-CC77-4E89-AD0D-1424C92A9CA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLabAccessor", "AutoLabAccessor\AutoLabAccessor.csproj", "{8BA6BA05-2290-4EC8-826B-DA7E79D424A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLabAccessor", "AutoLabAccessor\AutoLabAccessor.csproj", "{8BA6BA05-2290-4EC8-826B-DA7E79D424A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkPyAccessor", "OkPyAccessor\OkPyAccessor.csproj", "{D46A6DFB-9A9C-4661-A3D8-9513AD8CBD18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OkPyAccessor", "OkPyAccessor\OkPyAccessor.csproj", "{D46A6DFB-9A9C-4661-A3D8-9513AD8CBD18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureAccessor", "AzureAccessor\AzureAccessor.csproj", "{B2581FD7-CAF2-47E4-B7A3-F6C4498C9E35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureAccessor", "AzureAccessor\AzureAccessor.csproj", "{B2581FD7-CAF2-47E4-B7A3-F6C4498C9E35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureCalculatorAccessor", "AzureCalculatorAccessor\AzureCalculatorAccessor.csproj", "{73107FA7-AA78-4D29-AF3B-8942ED992E0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureCalculatorAccessor", "AzureCalculatorAccessor\AzureCalculatorAccessor.csproj", "{73107FA7-AA78-4D29-AF3B-8942ED992E0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicrosoftLearnAccessor", "MicrosoftLearnAccessor\MicrosoftLearnAccessor.csproj", "{88B66309-C41F-4B09-9D95-3247E62A870D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicrosoftLearnAccessor", "MicrosoftLearnAccessor\MicrosoftLearnAccessor.csproj", "{88B66309-C41F-4B09-9D95-3247E62A870D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamsAccessor", "TeamsAccessor\TeamsAccessor.csproj", "{137774B4-DDEC-4201-A171-193DEE0BD44D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamsAccessor", "TeamsAccessor\TeamsAccessor.csproj", "{137774B4-DDEC-4201-A171-193DEE0BD44D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MossAccessor", "MossAccessor\MossAccessor.csproj", "{74FC87A7-021A-424A-9B9A-2B64607D8542}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MossAccessor", "MossAccessor\MossAccessor.csproj", "{74FC87A7-021A-424A-9B9A-2B64607D8542}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubmissionsAccessor", "Submissions\SubmissionsAccessor.csproj", "{4CE2E32B-E047-4277-93DF-1C6FC7E2E282}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubmissionsAccessor", "Submissions\SubmissionsAccessor.csproj", "{4CE2E32B-E047-4277-93DF-1C6FC7E2E282}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{D03D3199-BDF1-4E3F-958C-3C0096077A64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LtiProvider", "LtiProvider\LtiProvider.csproj", "{5B507E98-A20F-4D2B-8A6C-9D3838F63BE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +139,14 @@ Global
 		{4CE2E32B-E047-4277-93DF-1C6FC7E2E282}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CE2E32B-E047-4277-93DF-1C6FC7E2E282}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CE2E32B-E047-4277-93DF-1C6FC7E2E282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D03D3199-BDF1-4E3F-958C-3C0096077A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D03D3199-BDF1-4E3F-958C-3C0096077A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D03D3199-BDF1-4E3F-958C-3C0096077A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D03D3199-BDF1-4E3F-958C-3C0096077A64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B507E98-A20F-4D2B-8A6C-9D3838F63BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B507E98-A20F-4D2B-8A6C-9D3838F63BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B507E98-A20F-4D2B-8A6C-9D3838F63BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B507E98-A20F-4D2B-8A6C-9D3838F63BE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

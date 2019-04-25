@@ -184,11 +184,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CV\\source\\repos\\Edna\\AzureCalculatorAccessor\\AzureCalculatorAccessor.csproj",
+      "projectUniqueName": "C:\\Users\\CV\\Desktop\\Lti2\\AzureCalculatorAccessor\\AzureCalculatorAccessor.csproj",
       "projectName": "AzureCalculatorAccessor",
-      "projectPath": "C:\\Users\\CV\\source\\repos\\Edna\\AzureCalculatorAccessor\\AzureCalculatorAccessor.csproj",
+      "projectPath": "C:\\Users\\CV\\Desktop\\Lti2\\AzureCalculatorAccessor\\AzureCalculatorAccessor.csproj",
       "packagesPath": "C:\\Users\\CV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CV\\source\\repos\\Edna\\AzureCalculatorAccessor\\obj\\",
+      "outputPath": "C:\\Users\\CV\\Desktop\\Lti2\\AzureCalculatorAccessor\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -202,7 +202,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {

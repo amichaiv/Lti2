@@ -184,11 +184,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CV\\source\\repos\\Edna\\OkPyAccessor\\OkPyAccessor.csproj",
+      "projectUniqueName": "C:\\Users\\CV\\Desktop\\Lti2\\OkPyAccessor\\OkPyAccessor.csproj",
       "projectName": "OkPyAccessor",
-      "projectPath": "C:\\Users\\CV\\source\\repos\\Edna\\OkPyAccessor\\OkPyAccessor.csproj",
+      "projectPath": "C:\\Users\\CV\\Desktop\\Lti2\\OkPyAccessor\\OkPyAccessor.csproj",
       "packagesPath": "C:\\Users\\CV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CV\\source\\repos\\Edna\\OkPyAccessor\\obj\\",
+      "outputPath": "C:\\Users\\CV\\Desktop\\Lti2\\OkPyAccessor\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -202,7 +202,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {

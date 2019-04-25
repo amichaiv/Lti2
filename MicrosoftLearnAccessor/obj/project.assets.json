@@ -184,11 +184,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CV\\source\\repos\\Edna\\MicrosoftLearnAccessor\\MicrosoftLearnAccessor.csproj",
+      "projectUniqueName": "C:\\Users\\CV\\Desktop\\Lti2\\MicrosoftLearnAccessor\\MicrosoftLearnAccessor.csproj",
       "projectName": "MicrosoftLearnAccessor",
-      "projectPath": "C:\\Users\\CV\\source\\repos\\Edna\\MicrosoftLearnAccessor\\MicrosoftLearnAccessor.csproj",
+      "projectPath": "C:\\Users\\CV\\Desktop\\Lti2\\MicrosoftLearnAccessor\\MicrosoftLearnAccessor.csproj",
       "packagesPath": "C:\\Users\\CV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CV\\source\\repos\\Edna\\MicrosoftLearnAccessor\\obj\\",
+      "outputPath": "C:\\Users\\CV\\Desktop\\Lti2\\MicrosoftLearnAccessor\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -202,7 +202,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
