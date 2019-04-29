@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "LtiLibrary.NetCore/3.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/LtiLibrary.NetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/LtiLibrary.NetCore.dll": {}
+        }
+      },
       "Microsoft.Azure.WebJobs/3.0.6": {
         "type": "package",
         "dependencies": {
@@ -581,20 +593,25 @@
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
-      },
-      "Common/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "compile": {
-          "bin/placeholder/Common.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Common.dll": {}
-        }
       }
     }
   },
   "libraries": {
+    "LtiLibrary.NetCore/3.0.1": {
+      "sha512": "qjVOON9PyfkUuUzzu8tSkzL56uuMpf5llB2WEp/ycZ7YdvPL4KS9pyFw54wBc5iIeiK+Sn+lnsdlWiSxV+rgxw==",
+      "type": "package",
+      "path": "ltilibrary.netcore/3.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.6/LtiLibrary.NetCore.dll",
+        "lib/netstandard1.6/LtiLibrary.NetCore.xml",
+        "lib/netstandard2.0/LtiLibrary.NetCore.dll",
+        "lib/netstandard2.0/LtiLibrary.NetCore.xml",
+        "ltilibrary.netcore.3.0.1.nupkg.sha512",
+        "ltilibrary.netcore.nuspec"
+      ]
+    },
     "Microsoft.Azure.WebJobs/3.0.6": {
       "sha512": "xPi8arw/ln5Ib05BG4AcvB0r2Umry8SQOXSQTFYh3Ow/dW/KOETRqfl6/vwptWK98qhEpm66hTLo6W57ICa1Xw==",
       "type": "package",
@@ -2238,16 +2255,11 @@
         "windowsazure.storage.9.3.1.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
-    },
-    "Common/1.0.0": {
-      "type": "project",
-      "path": "../Common/Common.csproj",
-      "msbuildProject": "../Common/Common.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "Common >= 1.0.0",
+      "LtiLibrary.NetCore >= 3.0.1",
       "Microsoft.Azure.WebJobs.Extensions.Storage >= 3.0.5",
       "NETStandard.Library >= 2.0.3"
     ]
@@ -2281,11 +2293,7 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {
-            "C:\\Users\\CV\\Desktop\\Lti2\\Common\\Common.csproj": {
-              "projectPath": "C:\\Users\\CV\\Desktop\\Lti2\\Common\\Common.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -2297,6 +2305,10 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "LtiLibrary.NetCore": {
+            "target": "Package",
+            "version": "[3.0.1, )"
+          },
           "Microsoft.Azure.WebJobs.Extensions.Storage": {
             "target": "Package",
             "version": "[3.0.5, )"

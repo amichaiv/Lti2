@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
 using System.Threading.Tasks;
 using LtiLibrary.AspNetCore.Extensions;
+using LtiLibrary.NetCore.Lti.v1;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
@@ -25,36 +26,33 @@ namespace TemplatesManager
         {
             log.LogInformation("New LMS Connection");
 
-            var assigment = await ParseToAssigment(req);
-            Assigment assigment1 = await GetOrAddToDbAsync(assignments, assigment);
+            var assignment = await ParseToAssignment(req);
+            Assignment assignment1 = await GetOrAddToDbAsync(assignments, assignment);
 
             return new RedirectToPageResult(RedirectUrl);
         }
 
-        private static async Task<Assigment> ParseToAssigment(HttpRequest req)
+        private static async Task<Assignment> ParseToAssignment(HttpRequest req)
         {
-            var ltiRequest = await req.ParseLtiRequestAsync();
-
-            Assigment assigment = new Assigment(ltiRequest.ToolConsumerInstanceName,
-                ltiRequest.ContextId,
-                ltiRequest.ResourceLinkId);
-            return assigment;
+            LtiRequest ltiRequest = await req.ParseLtiRequestAsync();
+            Assignment assignment = new Assignment(ltiRequest);
+            return assignment;
         }
 
-        private static async Task<Assigment> GetOrAddToDbAsync(CloudTable assignments, Assigment assigment)
+        private static async Task<Assignment> GetOrAddToDbAsync(CloudTable assignments, Assignment assignment)
         {
-            TableOperation retrieveOperation = TableOperation.Retrieve<Assigment>(assigment.PartitionKey, assigment.RowKey);
+            TableOperation retrieveOperation = TableOperation.Retrieve<Assignment>(assignment.PartitionKey, assignment.RowKey);
             TableResult tableResult = await assignments.ExecuteAsync(retrieveOperation);
 
-            if (tableResult.Result is Assigment result)
+            if (tableResult.Result is Assignment result)
             {
                 return result;
             }
 
-            assigment.GenerateGuid();
-            TableOperation tableOperation = TableOperation.Insert(assigment);
+            assignment.GenerateGuid();
+            TableOperation tableOperation = TableOperation.Insert(assignment);
             await assignments.ExecuteAsync(tableOperation);
-            return assigment;
+            return assignment;
         }
     }
 }

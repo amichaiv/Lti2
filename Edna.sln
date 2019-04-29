@@ -45,10 +45,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MossAccessor", "MossAccesso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubmissionsAccessor", "Submissions\SubmissionsAccessor.csproj", "{4CE2E32B-E047-4277-93DF-1C6FC7E2E282}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{D03D3199-BDF1-4E3F-958C-3C0096077A64}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LtiProvider", "LtiProvider\LtiProvider.csproj", "{5B507E98-A20F-4D2B-8A6C-9D3838F63BE0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,14 +135,6 @@ Global
 		{4CE2E32B-E047-4277-93DF-1C6FC7E2E282}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CE2E32B-E047-4277-93DF-1C6FC7E2E282}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CE2E32B-E047-4277-93DF-1C6FC7E2E282}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D03D3199-BDF1-4E3F-958C-3C0096077A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D03D3199-BDF1-4E3F-958C-3C0096077A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D03D3199-BDF1-4E3F-958C-3C0096077A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D03D3199-BDF1-4E3F-958C-3C0096077A64}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B507E98-A20F-4D2B-8A6C-9D3838F63BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B507E98-A20F-4D2B-8A6C-9D3838F63BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B507E98-A20F-4D2B-8A6C-9D3838F63BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B507E98-A20F-4D2B-8A6C-9D3838F63BE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
