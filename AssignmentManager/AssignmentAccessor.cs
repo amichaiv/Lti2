@@ -18,18 +18,7 @@ namespace AssignmentsManager
             [Table("Assignments", Connection = "StorageConnection")] CloudTable assignments,
             ILogger log)
         {
-            TableContinuationToken token = null;
-            var entities = new List<Assignment>();
-
-            do
-            {
-                var emptyQuery = new TableQuery<Assignment>();
-                var queryResult = await assignments.ExecuteQuerySegmentedAsync(emptyQuery, token);
-                entities.AddRange(queryResult.Results);
-                token = queryResult.ContinuationToken;
-
-            } while (token != null);
-
+            var entities = await GetAssignmentsAsync(assignments);
             return new OkObjectResult(entities);
         }
 
@@ -61,6 +50,23 @@ namespace AssignmentsManager
             ILogger log)
         {
             return null;
+        }
+
+        public static async Task<List<Assignment>> GetAssignmentsAsync(CloudTable assignments)
+        {
+            TableContinuationToken token = null;
+            var entities = new List<Assignment>();
+
+            do
+            {
+                var emptyQuery = new TableQuery<Assignment>();
+                var queryResult = await assignments.ExecuteQuerySegmentedAsync(emptyQuery, token);
+                entities.AddRange(queryResult.Results);
+                token = queryResult.ContinuationToken;
+
+            } while (token != null);
+
+            return entities;
         }
     }
 }

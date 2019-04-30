@@ -1,7 +1,7 @@
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
+using AssignmentsAccessor;
 using LtiLibrary.AspNetCore.Extensions;
 using LtiLibrary.NetCore.Lti.v1;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +10,6 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
-using Newtonsoft.Json;
 
 namespace TemplatesManager
 {
@@ -36,6 +35,7 @@ namespace TemplatesManager
         {
             LtiRequest ltiRequest = await req.ParseLtiRequestAsync();
             Assignment assignment = new Assignment(ltiRequest);
+            
             return assignment;
         }
 
@@ -50,7 +50,8 @@ namespace TemplatesManager
             }
 
             assignment.GenerateGuid();
-            TableOperation tableOperation = TableOperation.Insert(assignment);
+            
+            TableOperation tableOperation = TableOperation.InsertOrMerge(assignment);
             await assignments.ExecuteAsync(tableOperation);
             return assignment;
         }
