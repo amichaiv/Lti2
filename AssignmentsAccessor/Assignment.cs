@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using LtiLibrary.NetCore.Lti.v1;
-using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
+using StudentsAccessor;
 
 namespace AssignmentsAccessor
 {
@@ -15,6 +15,8 @@ namespace AssignmentsAccessor
         public string CustomContextMembershipsUrl { get; set; }
         public string OAuthConsumerKey { get; set; }
         public string ResourceLinkId { get; set; }
+
+        public IEnumerable<Person> Members { get; set; }
 
         public Assignment()
         {

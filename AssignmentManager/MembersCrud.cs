@@ -1,5 +1,8 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AssignmentsAccessor;
+using LtiLibrary.NetCore.Lis.v2;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
@@ -19,12 +22,12 @@ namespace AssignmentsManager
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
-            var entities = await AssignmentAccessor.GetAssignmentsAsync(assignments);
+            var entities = await AssignmentAccessor.GetAssignmentsAsync(assignments, new TableQuery<Assignment>());
             var membershipsManager = new LmsMemberships();
             // Need to get members according to some param in req
             // Temp solution
             var data = entities.First();
-            var members = await membershipsManager.GetMemberships(data.CustomContextMembershipsUrl,
+            List<Membership> members = await membershipsManager.GetMemberships(data.CustomContextMembershipsUrl,
                 data.OAuthConsumerKey, "secret", data.ResourceLinkId);
             return new OkObjectResult(members);
         }

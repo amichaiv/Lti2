@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AssignmentsAccessor;
 using Microsoft.AspNetCore.Http;
@@ -7,6 +8,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
+using StudentsAccessor;
 
 namespace AssignmentsManager
 {
@@ -18,8 +20,15 @@ namespace AssignmentsManager
             [Table("Assignments", Connection = "StorageConnection")] CloudTable assignments,
             ILogger log)
         {
-            var entities = await GetAssignmentsAsync(assignments);
-            return new OkObjectResult(entities);
+            //var membershipsManager = new LmsMemberships();
+            var assignmentsEntities = await GetAssignmentsAsync(assignments, new TableQuery<Assignment>());
+            //foreach (var assignment in assignmentsEntities)
+            //{
+            //    var members = await membershipsManager.GetMemberships(assignment.CustomContextMembershipsUrl,
+            //        assignment.OAuthConsumerKey, "secret", assignment.ResourceLinkId);
+            //    assignment.Members = MapMembersToPersons(members);
+            //}
+            return new OkObjectResult(assignmentsEntities);
         }
 
         [FunctionName("GetAssignment")]
@@ -29,7 +38,14 @@ namespace AssignmentsManager
             string guid,
             ILogger log)
         {
-            return null;
+            var query = new TableQuery<Assignment>();
+            var assignment = (await GetAssignmentsAsync(assignments, query))?.FirstOrDefault();
+            if (assignment != null)
+            {
+                assignment.Members = Person.GetPersons();
+            }
+
+            return new OkObjectResult(assignment);
         }
 
         [FunctionName("UpdateAssignment")]
@@ -52,15 +68,14 @@ namespace AssignmentsManager
             return null;
         }
 
-        public static async Task<List<Assignment>> GetAssignmentsAsync(CloudTable assignments)
+        public static async Task<List<Assignment>> GetAssignmentsAsync(CloudTable assignments, TableQuery<Assignment> query)
         {
             TableContinuationToken token = null;
             var entities = new List<Assignment>();
 
             do
             {
-                var emptyQuery = new TableQuery<Assignment>();
-                var queryResult = await assignments.ExecuteQuerySegmentedAsync(emptyQuery, token);
+                var queryResult = await assignments.ExecuteQuerySegmentedAsync(query, token);
                 entities.AddRange(queryResult.Results);
                 token = queryResult.ContinuationToken;
 
@@ -68,5 +83,7 @@ namespace AssignmentsManager
 
             return entities;
         }
+
+
     }
 }

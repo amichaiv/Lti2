@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\StudentsAccessor\StudentsAccessor.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="LtiLibrary.NetCore">
       <HintPath>..\..\..\.nuget\packages\ltilibrary.netcore\3.1.1\lib\netstandard2.0\LtiLibrary.NetCore.dll</HintPath>
     </Reference>
