@@ -24,18 +24,12 @@ namespace TemplatesManager
         {
             log.LogInformation("New LMS Connection");
 
-            var assignment = await ParseToAssignment(req);
-            Assignment assignment1 = await GetOrAddToDbAsync(assignments, assignment);
-
-            return new RedirectToPageResult(RedirectUrl);
-        }
-
-        private static async Task<Assignment> ParseToAssignment(HttpRequest req)
-        {
             LtiRequest ltiRequest = await req.ParseLtiRequestAsync();
-            Assignment assignment = new Assignment(ltiRequest);
-            
-            return assignment;
+            var assignmentToDb = new Assignment(ltiRequest);
+            Assignment assignment = await GetOrAddToDbAsync(assignments, assignmentToDb);
+
+            var ulrWithParams = $"{RedirectUrl}?assignmentGuid={assignment.Guid}&userId={ltiRequest.UserId}";
+            return new RedirectToPageResult(ulrWithParams);
         }
 
         private static async Task<Assignment> GetOrAddToDbAsync(CloudTable assignments, Assignment assignment)
