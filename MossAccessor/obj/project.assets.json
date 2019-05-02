@@ -184,11 +184,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CV\\Desktop\\Lti2\\MossAccessor\\MossAccessor.csproj",
+      "projectUniqueName": "C:\\Users\\CV\\Source\\Repos\\Lti2\\MossAccessor\\MossAccessor.csproj",
       "projectName": "MossAccessor",
-      "projectPath": "C:\\Users\\CV\\Desktop\\Lti2\\MossAccessor\\MossAccessor.csproj",
+      "projectPath": "C:\\Users\\CV\\Source\\Repos\\Lti2\\MossAccessor\\MossAccessor.csproj",
       "packagesPath": "C:\\Users\\CV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CV\\Desktop\\Lti2\\MossAccessor\\obj\\",
+      "outputPath": "C:\\Users\\CV\\Source\\Repos\\Lti2\\MossAccessor\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -202,7 +202,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "http://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
