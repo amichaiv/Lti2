@@ -598,7 +598,7 @@
   },
   "libraries": {
     "LtiLibrary.NetCore/3.0.1": {
-      "sha512": "qjVOON9PyfkUuUzzu8tSkzL56uuMpf5llB2WEp/ycZ7YdvPL4KS9pyFw54wBc5iIeiK+Sn+lnsdlWiSxV+rgxw==",
+      "sha512": "E2KrBgcFTn+fMXpQnAWNO4ET4fILBIVUtnCS2Vff4iLd2otHIuDwAia0lmFI8J/YVkdnkxf6xV6Zl/emCY2kQA==",
       "type": "package",
       "path": "ltilibrary.netcore/3.0.1",
       "files": [
@@ -613,7 +613,7 @@
       ]
     },
     "Microsoft.Azure.WebJobs/3.0.6": {
-      "sha512": "xPi8arw/ln5Ib05BG4AcvB0r2Umry8SQOXSQTFYh3Ow/dW/KOETRqfl6/vwptWK98qhEpm66hTLo6W57ICa1Xw==",
+      "sha512": "3lS8/msagUL5aLKNfmbNGobI+1uHNVCokLGondYQUNFOHE00UupofoxX2NxCj8Oc1XF9H4cXEbwsNzwGvVYn1Q==",
       "type": "package",
       "path": "microsoft.azure.webjobs/3.0.6",
       "files": [
@@ -625,7 +625,7 @@
       ]
     },
     "Microsoft.Azure.WebJobs.Core/3.0.6": {
-      "sha512": "Tb0kstelWj/2wt4W/ITFkqWcdwvoOjzO47y+smiYHn8b8KyjYtmhQR3CjZwJrIvgzkWHntdCM7moILXL8J5Geg==",
+      "sha512": "SV0s2MyIvFcn3ALgXTmiW8ar1t/pb4MWnkHN/xmF1RbRRfak8POrjDXWyXvi2zJnS/N/TMo1bWWAX9+vQqHpLw==",
       "type": "package",
       "path": "microsoft.azure.webjobs.core/3.0.6",
       "files": [
@@ -637,7 +637,7 @@
       ]
     },
     "Microsoft.Azure.WebJobs.Extensions.Storage/3.0.5": {
-      "sha512": "InH3dKi54qAFl8fO7Tmem6fy79jZKAQDjtLLR03OYnDcxw1vyIwpFYWkylwk8a1ebuGAV7tazJc7fs5/6pSYBg==",
+      "sha512": "g9ZPl1V8PaC+gCoV1HBUZsT06/TsNl4X0uYje4dUfd8bSd9aM53CSnFetxPDqIlI3Ts4zi+nfsDsfk0t7wOMWg==",
       "type": "package",
       "path": "microsoft.azure.webjobs.extensions.storage/3.0.5",
       "files": [
@@ -1086,12 +1086,11 @@
       ]
     },
     "runtime.native.System/4.3.0": {
-      "sha512": "c/qWt2LieNZIj1jGnVNsE2Kl23Ya2aSTBuXMD6V7k9KWr6l16Tqdwq+hJScEpWER9753NWC8h96PaVNY5Ld7Jw==",
+      "sha512": "W87vmOP1+LI0vfk9ZDddofX49bPsjTFyGbXH6hh27RhzDGmDJOyHqWnT2ta/Es5G8QvUi5zgvU3wKwYi373a9Q==",
       "type": "package",
       "path": "runtime.native.system/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -1100,7 +1099,7 @@
       ]
     },
     "System.Buffers/4.4.0": {
-      "sha512": "AwarXzzoDwX6BgrhjoJsk6tUezZEozOT5Y9QKF94Gl4JK91I4PIIBkBco9068Y9/Dra8Dkbie99kXB8+1BaYKw==",
+      "sha512": "Ii2bedd4HVzddupdU35n3ygohUPlNn7MDimBOYcwWNce2NizQ1fCSaQJY1Tzv80aMqOGpVcU4wZr/Xe50xcTwg==",
       "type": "package",
       "path": "system.buffers/4.4.0",
       "files": [
@@ -1192,7 +1191,7 @@
       ]
     },
     "System.ComponentModel.Annotations/4.4.0": {
-      "sha512": "29K3DQ+IGU7LBaMjTo7SI7T7X/tsMtLvz1p56LJ556Iu0Dw3pKZw5g8yCYCWMRxrOF0Hr0FU0FwW0o42y2sb3A==",
+      "sha512": "vd03owHLpgcjxuZQJt/rZDsphb6uofhbxeFdXAHI7bytuHBKOmARGV0jE6fKH32vmQlPkRnvxQRbPS2elLAmSg==",
       "type": "package",
       "path": "system.componentmodel.annotations/4.4.0",
       "files": [
@@ -1572,11 +1571,12 @@
       ]
     },
     "System.Numerics.Vectors/4.4.0": {
-      "sha512": "UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ==",
+      "sha512": "gdRrUJs1RrjW3JB5p82hYjA67xoeFLvh0SdSIWjTiN8qExlbFt/RtXwVYNc5BukJ/f9OKzQQS6gakzbJeHTqHg==",
       "type": "package",
       "path": "system.numerics.vectors/4.4.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/MonoAndroid10/_._",
@@ -2271,11 +2271,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CV\\Desktop\\Lti2\\StudentsAccessor\\StudentsAccessor.csproj",
+      "projectUniqueName": "C:\\Users\\CV\\Source\\Repos\\Lti2\\StudentsAccessor\\StudentsAccessor.csproj",
       "projectName": "StudentsAccessor",
-      "projectPath": "C:\\Users\\CV\\Desktop\\Lti2\\StudentsAccessor\\StudentsAccessor.csproj",
+      "projectPath": "C:\\Users\\CV\\Source\\Repos\\Lti2\\StudentsAccessor\\StudentsAccessor.csproj",
       "packagesPath": "C:\\Users\\CV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CV\\Desktop\\Lti2\\StudentsAccessor\\obj\\",
+      "outputPath": "C:\\Users\\CV\\Source\\Repos\\Lti2\\StudentsAccessor\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -2289,7 +2289,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "http://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {

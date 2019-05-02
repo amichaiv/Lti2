@@ -184,11 +184,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CV\\Desktop\\Lti2\\AzureAccessor\\AzureAccessor.csproj",
+      "projectUniqueName": "C:\\Users\\CV\\Source\\Repos\\Lti2\\AzureAccessor\\AzureAccessor.csproj",
       "projectName": "AzureAccessor",
-      "projectPath": "C:\\Users\\CV\\Desktop\\Lti2\\AzureAccessor\\AzureAccessor.csproj",
+      "projectPath": "C:\\Users\\CV\\Source\\Repos\\Lti2\\AzureAccessor\\AzureAccessor.csproj",
       "packagesPath": "C:\\Users\\CV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CV\\Desktop\\Lti2\\AzureAccessor\\obj\\",
+      "outputPath": "C:\\Users\\CV\\Source\\Repos\\Lti2\\AzureAccessor\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -202,7 +202,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "http://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
