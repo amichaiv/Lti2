@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using AssignmentsAccessor;
 using LtiLibrary.AspNetCore.Extensions;
@@ -20,7 +19,7 @@ namespace TemplatesManager
         [FunctionName("connect")]
         public static async Task<IActionResult> Connect(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
-            [Microsoft.Azure.WebJobs.Table("Assignments", Connection = "StorageConnection")] CloudTable assignments,
+            [Table("Assignments", Connection = "StorageConnection")] CloudTable assignments,
             ILogger log)
         {
             log.LogInformation("New LMS Connection");

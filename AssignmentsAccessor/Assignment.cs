@@ -10,14 +10,13 @@ namespace AssignmentsAccessor
     public class Assignment : TableEntity
     {
         public Guid Guid { get; set; }
-        public StudentAssignment[] StudentsAssignments { get; set; }
-        public int NoOfStudents { get; set; } = new Random().Next(1, 10);
-        public int TotalConsumed { get; set; } = new Random().Next(1, 10);
-        public int NoOfProjectGroups { get; set; } = new Random().Next(1, 10);
-        public int NoOfTeachingAssistants { get; set; } = new Random().Next(1, 10);
+        public int NoOfStudents { get; set; } 
+        public int TotalConsumed { get; set; } 
+        public int NoOfProjectGroups { get; set; }
+        public int NoOfTeachingAssistants { get; set; } = new Random().Next(1, 3);
         public string OutcomeServiceUrl { get; set; }
         public string ResultSourcedId { get; set; }
-        public string CustomContextMembershipsUrl { get; set; }
+        public string CustomContextMembershipsUrl { get; set; } 
         public string OAuthConsumerKey { get; set; }
         public string ResourceLinkId { get; set; }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -40,11 +41,14 @@ namespace AssignmentsManager
         {
             var query = new TableQuery<Assignment>();
             var assignment = (await GetAssignmentsAsync(assignments, query))?.FirstOrDefault();
-            if (assignment != null)
+            if (assignment == null)
             {
-                assignment.Members = Person.GetPersons();
+                return new NotFoundObjectResult(guid);
             }
-
+            assignment.Members = Person.GetPersons().ToList();
+            assignment.NoOfStudents = assignment.Members.Count();
+            assignment.TotalConsumed = assignment.Members.Sum(member => member.Consumed);
+            assignment.NoOfProjectGroups = assignment.Members.Select(member => member.Group).Distinct().Count();
             return new OkObjectResult(assignment);
         }
 
