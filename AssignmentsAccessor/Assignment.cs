@@ -10,6 +10,7 @@ namespace AssignmentsAccessor
     public class Assignment : TableEntity
     {
         public Guid Guid { get; set; }
+        public string Name { get; set; }
         public int NoOfStudents { get; set; } 
         public int TotalConsumed { get; set; } 
         public int NoOfProjectGroups { get; set; }
@@ -31,8 +32,8 @@ namespace AssignmentsAccessor
         {
             var ltiRequestCustomParameters = ltiRequest.CustomParameters;
             var customParams = ltiRequestCustomParameters.Split('&');
-            var membershipsUrlStatement = customParams.Single(param => param.Contains("custom_context_memberships_url"));
-            var membershipsValue = membershipsUrlStatement.Split('=')[1];
+            var membershipsUrlStatement = customParams.FirstOrDefault(param => param.Contains("custom_context_memberships_url"));
+            var membershipsValue = membershipsUrlStatement?.Split('=')[1];
 
             OutcomeServiceUrl = ltiRequest.LisOutcomeServiceUrl;
             ResultSourcedId = ltiRequest.LisResultSourcedId;

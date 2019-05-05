@@ -34,9 +34,10 @@ namespace AssignmentsManager
 
         [FunctionName("GetAssignment")]
         public static async Task<IActionResult> GetAssignment(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "assignments/{guid}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "assignments/{guid}/users/{userId}")] HttpRequest req,
             [Table("Assignments", Connection = "StorageConnection")] CloudTable assignments,
             string guid,
+            string userId,
             ILogger log)
         {
             var query = new TableQuery<Assignment>();
@@ -45,6 +46,8 @@ namespace AssignmentsManager
             {
                 return new NotFoundObjectResult(guid);
             }
+
+            assignment.Name = "SQL";
             assignment.Members = Person.GetPersons().ToList();
             assignment.NoOfStudents = assignment.Members.Count();
             assignment.TotalConsumed = assignment.Members.Sum(member => member.Consumed);
