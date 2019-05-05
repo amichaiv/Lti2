@@ -8,6 +8,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
+using StudentsAccessor;
 
 namespace AssignmentsManager
 {
@@ -19,14 +20,7 @@ namespace AssignmentsManager
             [Table("Assignments", Connection = "StorageConnection")] CloudTable assignments,
             ILogger log)
         {
-            //var membershipsManager = new LmsMemberships();
             var assignmentsEntities = await GetAssignmentsAsync(assignments, new TableQuery<Assignment>());
-            //foreach (var assignment in assignmentsEntities)
-            //{
-            //    var members = await membershipsManager.GetMemberships(assignment.CustomContextMembershipsUrl,
-            //        assignment.OAuthConsumerKey, "secret", assignment.ResourceLinkId);
-            //    assignment.Members = MapMembersToPersons(members);
-            //}
             return new OkObjectResult(assignmentsEntities);
         }
 
@@ -45,10 +39,10 @@ namespace AssignmentsManager
             }
 
             assignment.Name = "SQL";
-            //assignment.Members = Person.GetPersons().ToList();
-            //assignment.NoOfStudents = assignment.Members.Count();
-           // assignment.TotalConsumed = assignment.Members.Sum(member => member.Consumed);
-           // assignment.NoOfProjectGroups = assignment.Members.Select(member => member.Group).Distinct().Count();
+            assignment.Members = Person.GetPersons().ToList();
+            assignment.NoOfStudents = assignment.Members.Count();
+            assignment.TotalConsumed = assignment.Members.Sum(member => member.Consumed);
+            assignment.NoOfProjectGroups = assignment.Members.Select(member => member.Group).Distinct().Count();
             return new OkObjectResult(assignment);
         }
 
