@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,11 +8,10 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
-using StudentsAccessor;
 
 namespace AssignmentsManager
 {
-    public static class AssignmentAccessor
+    public static class AssignmentsApi
     {
         [FunctionName("GetAssignments")]
         public static async Task<IActionResult> GetAssignments(
@@ -34,10 +32,9 @@ namespace AssignmentsManager
 
         [FunctionName("GetAssignment")]
         public static async Task<IActionResult> GetAssignment(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "assignments/{guid}/users/{userId}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "assignments/{guid}")] HttpRequest req,
             [Table("Assignments", Connection = "StorageConnection")] CloudTable assignments,
             string guid,
-            string userId,
             ILogger log)
         {
             var query = new TableQuery<Assignment>();
@@ -48,10 +45,10 @@ namespace AssignmentsManager
             }
 
             assignment.Name = "SQL";
-            assignment.Members = Person.GetPersons().ToList();
-            assignment.NoOfStudents = assignment.Members.Count();
-            assignment.TotalConsumed = assignment.Members.Sum(member => member.Consumed);
-            assignment.NoOfProjectGroups = assignment.Members.Select(member => member.Group).Distinct().Count();
+            //assignment.Members = Person.GetPersons().ToList();
+            //assignment.NoOfStudents = assignment.Members.Count();
+           // assignment.TotalConsumed = assignment.Members.Sum(member => member.Consumed);
+           // assignment.NoOfProjectGroups = assignment.Members.Select(member => member.Group).Distinct().Count();
             return new OkObjectResult(assignment);
         }
 

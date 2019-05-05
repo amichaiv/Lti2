@@ -22,7 +22,7 @@ namespace AssignmentsManager
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
-            var entities = await AssignmentAccessor.GetAssignmentsAsync(assignments, new TableQuery<Assignment>());
+            var entities = await AssignmentsApi.GetAssignmentsAsync(assignments, new TableQuery<Assignment>());
             var membershipsManager = new LmsMemberships();
             // Need to get members according to some param in req
             // Temp solution
