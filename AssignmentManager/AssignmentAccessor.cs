@@ -39,7 +39,9 @@ namespace AssignmentsManager
             string guid,
             ILogger log)
         {
-            var query = new TableQuery<Assignment>();
+            var query = new TableQuery<Assignment>().Where(
+                TableQuery.GenerateFilterCondition("GUID", QueryComparisons.Equal, guid));
+
             var assignment = (await GetAssignmentsAsync(assignments, query))?.FirstOrDefault();
             if (assignment == null)
             {
@@ -80,7 +82,8 @@ namespace AssignmentsManager
             do
             {
                 var queryResult = await assignments.ExecuteQuerySegmentedAsync(query, token);
-                entities.AddRange(queryResult.Results);
+                if (queryResult.Results.Any())
+                    entities.AddRange(queryResult.Results);
                 token = queryResult.ContinuationToken;
 
             } while (token != null);
