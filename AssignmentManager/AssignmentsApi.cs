@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,7 +12,7 @@ using StudentsAccessor;
 
 namespace AssignmentsManager
 {
-    public static class AssignmentAccessor
+    public static class AssignmentsApi
     {
         [FunctionName("GetAssignments")]
         public static async Task<IActionResult> GetAssignments(
@@ -21,14 +20,7 @@ namespace AssignmentsManager
             [Table("Assignments", Connection = "StorageConnection")] CloudTable assignments,
             ILogger log)
         {
-            //var membershipsManager = new LmsMemberships();
             var assignmentsEntities = await GetAssignmentsAsync(assignments, new TableQuery<Assignment>());
-            //foreach (var assignment in assignmentsEntities)
-            //{
-            //    var members = await membershipsManager.GetMemberships(assignment.CustomContextMembershipsUrl,
-            //        assignment.OAuthConsumerKey, "secret", assignment.ResourceLinkId);
-            //    assignment.Members = MapMembersToPersons(members);
-            //}
             return new OkObjectResult(assignmentsEntities);
         }
 
@@ -47,6 +39,8 @@ namespace AssignmentsManager
             {
                 return new NotFoundObjectResult(guid);
             }
+
+            assignment.Name = "SQL";
             assignment.Members = Person.GetPersons().ToList();
             assignment.NoOfStudents = assignment.Members.Count();
             assignment.TotalConsumed = assignment.Members.Sum(member => member.Consumed);

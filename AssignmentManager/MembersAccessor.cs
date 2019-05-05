@@ -31,7 +31,7 @@ namespace AssignmentsManager
             }
             var query = new TableQuery<Assignment>().Where(
                 TableQuery.GenerateFilterConditionForGuid("Guid", QueryComparisons.Equal, queryQuid));
-            var assignmentQueryResult = await AssignmentAccessor.GetAssignmentsAsync(assignments, query);
+            var assignmentQueryResult = await AssignmentsApi.GetAssignmentsAsync(assignments, query);
             var assignment = assignmentQueryResult.FirstOrDefault();
             if (assignment == null)
             {
