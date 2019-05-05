@@ -28,8 +28,9 @@ namespace TemplatesManager
             var assignmentToDb = new Assignment(ltiRequest);
             Assignment assignment = await GetOrAddToDbAsync(assignments, assignmentToDb);
 
-            var ulrWithParams = $"{RedirectUrl}?assignmentGuid={assignment.Guid}&userId={ltiRequest.UserId}";
-            return new RedirectToPageResult(ulrWithParams);
+            var urlWithParams = $"{RedirectUrl}/en?assignmentGuid={assignment.Guid}&userId={ltiRequest.UserId}";
+            log.LogInformation($"Redirect to {urlWithParams}");
+            return new RedirectResult(urlWithParams, true);
         }
 
         private static async Task<Assignment> GetOrAddToDbAsync(CloudTable assignments, Assignment assignment)
