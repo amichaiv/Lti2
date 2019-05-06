@@ -1,14 +1,13 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AssignmentsAccessor;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
-using StudentsAccessor;
 
 namespace AssignmentsManager
 {
@@ -20,8 +19,20 @@ namespace AssignmentsManager
             [Table("Assignments", Connection = "StorageConnection")] CloudTable assignments,
             ILogger log)
         {
-            var assignmentsEntities = await GetAssignmentsAsync(assignments, new TableQuery<Assignment>());
-            return new OkObjectResult(assignmentsEntities);
+            var entities = new List<Assignment>();
+            var emptyQuery = new TableQuery<Assignment>();
+            TableContinuationToken token = null;
+
+            do
+            {
+                var queryResult = await assignments.ExecuteQuerySegmentedAsync(emptyQuery, token);
+                if (queryResult.Results.Any())
+                    entities.AddRange(queryResult.Results);
+                token = queryResult.ContinuationToken;
+
+            } while (token != null);
+
+            return new OkObjectResult(entities);
         }
 
         [FunctionName("GetAssignment")]
@@ -31,20 +42,18 @@ namespace AssignmentsManager
             string guid,
             ILogger log)
         {
-            var query = new TableQuery<Assignment>().Where(
-                TableQuery.GenerateFilterCondition("GUID", QueryComparisons.Equal, guid));
 
-            var assignment = (await GetAssignmentsAsync(assignments, query))?.FirstOrDefault();
+            var filter = TableQuery
+                .GenerateFilterConditionForGuid("Guid", QueryComparisons.Equal, Guid.Parse(guid));
+      
+            var query = new TableQuery<Assignment>().Where(filter).Take(1);
+            var queryResult = await assignments.ExecuteQuerySegmentedAsync(query, null);
+            var assignment = queryResult.Results.FirstOrDefault();
             if (assignment == null)
             {
                 return new NotFoundObjectResult(guid);
             }
 
-            assignment.Name = "SQL";
-            assignment.Members = Person.GetPersons().ToList();
-            assignment.NoOfStudents = assignment.Members.Count();
-            assignment.TotalConsumed = assignment.Members.Sum(member => member.Consumed);
-            assignment.NoOfProjectGroups = assignment.Members.Select(member => member.Group).Distinct().Count();
             return new OkObjectResult(assignment);
         }
 
@@ -68,22 +77,22 @@ namespace AssignmentsManager
             return null;
         }
 
-        public static async Task<List<Assignment>> GetAssignmentsAsync(CloudTable assignments, TableQuery<Assignment> query)
-        {
-            TableContinuationToken token = null;
-            var entities = new List<Assignment>();
+        //public static async Task<List<Assignment>> GetAssignmentsAsync(CloudTable assignments, TableQuery<Assignment> query)
+        //{
+        //    TableContinuationToken token = null;
+        //    var entities = new List<Assignment>();
 
-            do
-            {
-                var queryResult = await assignments.ExecuteQuerySegmentedAsync(query, token);
-                if (queryResult.Results.Any())
-                    entities.AddRange(queryResult.Results);
-                token = queryResult.ContinuationToken;
+        //    do
+        //    {
+        //        var queryResult = await assignments.ExecuteQuerySegmentedAsync(query, token);
+        //        if (queryResult.Results.Any())
+        //            entities.AddRange(queryResult.Results);
+        //        token = queryResult.ContinuationToken;
 
-            } while (token != null);
+        //    } while (token != null);
 
-            return entities;
-        }
+        //    return entities;
+        //}
 
 
     }

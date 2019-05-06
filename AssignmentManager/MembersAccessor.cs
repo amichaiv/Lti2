@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
-using AssignmentsAccessor;
 using LtiLibrary.NetCore.Lis.v2;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -25,14 +24,22 @@ namespace AssignmentsManager
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
-            if (!Guid.TryParse(guid, out var queryQuid))
+
+            if (!Guid.TryParse(guid, out var queryGuid))
             {
                 return new BadRequestErrorMessageResult("Invalid Guid");
             }
-            var query = new TableQuery<Assignment>().Where(
-                TableQuery.GenerateFilterConditionForGuid("Guid", QueryComparisons.Equal, queryQuid));
-            var assignmentQueryResult = await AssignmentsApi.GetAssignmentsAsync(assignments, query);
-            var assignment = assignmentQueryResult.FirstOrDefault();
+
+            var filter = TableQuery
+                .GenerateFilterConditionForGuid("Guid", QueryComparisons.Equal, queryGuid);
+
+            var query = new TableQuery<LmsAssignment>().Where(filter).Take(1);
+            var queryResult = await assignments.ExecuteQuerySegmentedAsync(query, null);
+            var assignment = queryResult.Results.FirstOrDefault();
+            //var query = new TableQuery<LmsAssignment>().Where(
+            //    TableQuery.GenerateFilterConditionForGuid("Guid", QueryComparisons.Equal, queryGuid));
+            //var assignmentQueryResult = await AssignmentsApi.GetAssignmentsAsync(assignments, query);
+            //var assignment = assignmentQueryResult.FirstOrDefault();
             if (assignment == null)
             {
                 return new NotFoundObjectResult($"Assignment with Guid {guid} was not found");
@@ -68,7 +75,7 @@ namespace AssignmentsManager
             return new OkObjectResult(user);
         }
 
-        private static bool ValidateData(Assignment assignment)
+        private static bool ValidateData(LmsAssignment assignment)
         {
             return !string.IsNullOrEmpty(assignment.CustomContextMembershipsUrl) &&
                    !string.IsNullOrEmpty(assignment.OAuthConsumerKey) &&
