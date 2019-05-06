@@ -43,7 +43,8 @@ namespace TemplatesManager
             Assignment assignment = new Assignment
             {
                 CourseName = ltiRequest.ContextTitle,
-                LmsName = ltiRequest.ToolConsumerInstanceName,
+                LmsInstanceName = ltiRequest.ToolConsumerInstanceName,
+                LmsProviderName = ltiRequest.ToolConsumerInfoProductFamilyCode,
                 LtiName = ltiRequest.ResourceLinkTitle,
                 OutcomeServiceUrl = ltiRequest.LisOutcomeServiceUrl,
                 ResultSourcedId = ltiRequest.LisResultSourcedId,

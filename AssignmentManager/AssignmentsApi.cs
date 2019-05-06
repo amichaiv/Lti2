@@ -45,7 +45,7 @@ namespace AssignmentsManager
 
             var filter = TableQuery
                 .GenerateFilterConditionForGuid("Guid", QueryComparisons.Equal, Guid.Parse(guid));
-      
+
             var query = new TableQuery<Assignment>().Where(filter).Take(1);
             var queryResult = await assignments.ExecuteQuerySegmentedAsync(query, null);
             var assignment = queryResult.Results.FirstOrDefault();
@@ -76,24 +76,5 @@ namespace AssignmentsManager
         {
             return null;
         }
-
-        //public static async Task<List<Assignment>> GetAssignmentsAsync(CloudTable assignments, TableQuery<Assignment> query)
-        //{
-        //    TableContinuationToken token = null;
-        //    var entities = new List<Assignment>();
-
-        //    do
-        //    {
-        //        var queryResult = await assignments.ExecuteQuerySegmentedAsync(query, token);
-        //        if (queryResult.Results.Any())
-        //            entities.AddRange(queryResult.Results);
-        //        token = queryResult.ContinuationToken;
-
-        //    } while (token != null);
-
-        //    return entities;
-        //}
-
-
     }
 }
