@@ -30,8 +30,8 @@ namespace AssignmentsManager
             {
                 return new NotFoundObjectResult($"Assignment with Guid {assignmentGuid} was not found");
             }
-            var membershipsManager = new LmsMemberships();
-            var members = await membershipsManager.GetMemberships(lmsAssignment.CustomContextMembershipsUrl,
+            var lmsMembershipsAccessor = new LmsMemberships();
+            var members = await lmsMembershipsAccessor.GetMemberships(lmsAssignment.CustomContextMembershipsUrl,
                 lmsAssignment.OAuthConsumerKey, "secret", lmsAssignment.ResourceLinkId);
 
             return new OkObjectResult(members);

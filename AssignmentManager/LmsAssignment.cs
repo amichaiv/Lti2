@@ -2,7 +2,7 @@
 
 namespace AssignmentsManager
 {
-    internal class LmsAssignment : Assignment
+    internal class LmsAssignment : TableEntity
     {
         public string OutcomeServiceUrl { get; set; }
         public string CustomContextMembershipsUrl { get; set; }
@@ -13,12 +13,6 @@ namespace AssignmentsManager
         public LmsAssignment()
         {
             
-        }
-
-        public LmsAssignment(string partitionKey, string contextId, string resourceLinkId)
-        {
-            PartitionKey = partitionKey;
-            RowKey = $"{contextId}_{resourceLinkId}";
         }
     }
 }
