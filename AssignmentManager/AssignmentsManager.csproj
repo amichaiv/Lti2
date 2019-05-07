@@ -8,10 +8,6 @@
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.24" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AssignmentsAccessor\AssignmentsAccessor.csproj" />
-    <ProjectReference Include="..\StudentsAccessor\StudentsAccessor.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <None Update="host.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
