@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.WindowsAzure.Storage.Table;
 
-namespace AssignmentsManager.Models
+namespace AssignmentsManager
 {
     public class Assignment : TableEntity
     {

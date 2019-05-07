@@ -1,6 +1,6 @@
 ﻿using Microsoft.WindowsAzure.Storage.Table;
 
-namespace AssignmentsManager.Models
+namespace AssignmentsManager
 {
     internal class LmsAssignment : TableEntity
     {
