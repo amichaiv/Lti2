@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using LtiLibrary.NetCore.Clients;
@@ -8,18 +10,18 @@ namespace StudentsAccessor
 {
     public class LmsMemberships
     {
-        public async Task<List<Membership>> GetMemberships(
+        public async Task<IEnumerable<Member>> GetMemberships(
             string contextMembershipsUrl, string oAuthConsumerKey,
             string customerSecret, string resourceLinkId)
         {
             if (!ValidateData(contextMembershipsUrl, oAuthConsumerKey, customerSecret, resourceLinkId))
-                return new List<Membership>();
+                return new List<Member>();
             using (var client = new HttpClient())
             {
                 var clientResponse =
                     await MembershipClient.GetMembershipAsync(client, contextMembershipsUrl,
                         oAuthConsumerKey, customerSecret, resourceLinkId);
-                return clientResponse.Response;
+                return clientResponse.Response.Select(MembershipToMemberMapper);
             }
         }
 
@@ -30,6 +32,19 @@ namespace StudentsAccessor
                    && !string.IsNullOrEmpty(oAuthConsumerKey)
                    && !string.IsNullOrEmpty(customerSecret)
                    && !string.IsNullOrEmpty(resourceLinkId);
+        }
+
+        private static Member MembershipToMemberMapper(Membership membership)
+        {
+            return new Member
+            {
+                UserId = membership.Member.UserId,
+                FamilyName = membership.Member.FamilyName,
+                GivenName = membership.Member.GivenName,
+                Email = membership.Member.Email,
+                Role = membership.Role.Select(role=> role.ToString()),
+                Status = membership.Status.ToString()
+            };
         }
     }
 }
