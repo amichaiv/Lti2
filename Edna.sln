@@ -19,31 +19,35 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoGradersManager", "AutoG
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntiCheatsManager", "AntiCheatsManager\AntiCheatsManager.csproj", "{40C73D08-2F9D-4BF3-8298-F0F9BB7A4C30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssignmentsAccessor", "AssignmentsAccessor\AssignmentsAccessor.csproj", "{6197B4E9-556E-4FEA-B273-15644A7DA4BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssignmentsAccessor", "AssignmentsAccessor\AssignmentsAccessor.csproj", "{6197B4E9-556E-4FEA-B273-15644A7DA4BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLabAccessor", "AutoLabAccessor\AutoLabAccessor.csproj", "{0FEBDE0C-9D1B-44DB-B093-18C4E4CCB109}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLabAccessor", "AutoLabAccessor\AutoLabAccessor.csproj", "{0FEBDE0C-9D1B-44DB-B093-18C4E4CCB109}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureCalculatorAccessor", "AzureCalculatorAccessor\AzureCalculatorAccessor.csproj", "{80D5D849-FDDC-489D-A661-9133843C14D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureCalculatorAccessor", "AzureCalculatorAccessor\AzureCalculatorAccessor.csproj", "{80D5D849-FDDC-489D-A661-9133843C14D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureAccessor", "AzureAccessor\AzureAccessor.csproj", "{AAA6599A-3EF7-4488-BEC8-452D75477AE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureAccessor", "AzureAccessor\AzureAccessor.csproj", "{AAA6599A-3EF7-4488-BEC8-452D75477AE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetsAccessor", "BudgetsAccessor\BudgetsAccessor.csproj", "{CF1EC106-1F18-45CF-8CF4-3833FAEFC519}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetsAccessor", "BudgetsAccessor\BudgetsAccessor.csproj", "{CF1EC106-1F18-45CF-8CF4-3833FAEFC519}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitAccessor", "GitAccessor\GitAccessor.csproj", "{A8C14E1B-0D8D-4F71-AD6F-C395AA70C586}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GitAccessor", "GitAccessor\GitAccessor.csproj", "{A8C14E1B-0D8D-4F71-AD6F-C395AA70C586}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicrosoftLearnAccessor", "MicrosoftLearnAccessor\MicrosoftLearnAccessor.csproj", "{35AEDA88-08A2-495C-90D0-4D9A1D145687}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicrosoftLearnAccessor", "MicrosoftLearnAccessor\MicrosoftLearnAccessor.csproj", "{35AEDA88-08A2-495C-90D0-4D9A1D145687}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MossAccessor", "MossAccessor\MossAccessor.csproj", "{2956895B-D752-48C7-ABEE-91D747195713}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MossAccessor", "MossAccessor\MossAccessor.csproj", "{2956895B-D752-48C7-ABEE-91D747195713}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkPyAccessor", "OkPyAccessor\OkPyAccessor.csproj", "{1E40708E-4544-4252-B306-110D6A54B2E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OkPyAccessor", "OkPyAccessor\OkPyAccessor.csproj", "{1E40708E-4544-4252-B306-110D6A54B2E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipsAccessor", "MembershipsAccessor\MembershipsAccessor.csproj", "{7BC2B46B-3DF0-4A5E-835B-CF034173749B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MembershipsAccessor", "MembershipsAccessor\MembershipsAccessor.csproj", "{7BC2B46B-3DF0-4A5E-835B-CF034173749B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubmissionsAccessor", "SubmissionsAccessor\SubmissionsAccessor.csproj", "{F7383F7B-6B36-4550-BEE2-8AD84E75A6CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubmissionsAccessor", "SubmissionsAccessor\SubmissionsAccessor.csproj", "{F7383F7B-6B36-4550-BEE2-8AD84E75A6CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubmissionsManager", "SubmissionsManager\SubmissionsManager.csproj", "{FEC329B4-9EAA-43E2-979D-1AF870490395}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubmissionsManager", "SubmissionsManager\SubmissionsManager.csproj", "{FEC329B4-9EAA-43E2-979D-1AF870490395}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamsAccessor", "TeamsAccessor\TeamsAccessor.csproj", "{7CBC7FC0-6E44-4709-A23F-D23F86341E83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamsAccessor", "TeamsAccessor\TeamsAccessor.csproj", "{7CBC7FC0-6E44-4709-A23F-D23F86341E83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test1", "Test1\Test1.csproj", "{0C7D1F6F-78AB-420C-9BDD-A5C7B2E0379B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test2", "Test2\Test2.csproj", "{B30C437D-E259-4F56-9040-D15F30521C98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +139,14 @@ Global
 		{7CBC7FC0-6E44-4709-A23F-D23F86341E83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CBC7FC0-6E44-4709-A23F-D23F86341E83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CBC7FC0-6E44-4709-A23F-D23F86341E83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C7D1F6F-78AB-420C-9BDD-A5C7B2E0379B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C7D1F6F-78AB-420C-9BDD-A5C7B2E0379B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C7D1F6F-78AB-420C-9BDD-A5C7B2E0379B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C7D1F6F-78AB-420C-9BDD-A5C7B2E0379B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B30C437D-E259-4F56-9040-D15F30521C98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B30C437D-E259-4F56-9040-D15F30521C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B30C437D-E259-4F56-9040-D15F30521C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B30C437D-E259-4F56-9040-D15F30521C98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
