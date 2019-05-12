@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using LtiLibrary.NetCore.Clients;
 using LtiLibrary.NetCore.Lis.v2;
 
-namespace MembershipsAccessor
+namespace AssignmentsManager
 {
     public class LmsMemberships
     {

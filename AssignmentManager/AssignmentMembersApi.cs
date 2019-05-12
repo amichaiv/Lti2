@@ -2,10 +2,10 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
 
@@ -15,7 +15,8 @@ namespace AssignmentsManager
     {
         [FunctionName("GetAssignmentMembers")]
         public static async Task<IActionResult> GetAssignmentMembers(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "assignments/{assignmentGuid}/members")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", 
+                Route = "assignments/{assignmentGuid}/members")] HttpRequest req,
             [Table("Assignments", Connection = "StorageConnection")] CloudTable assignments,
             string assignmentGuid,
             ILogger log)
@@ -29,17 +30,19 @@ namespace AssignmentsManager
             {
                 return new NotFoundObjectResult($"Assignment with Guid {assignmentGuid} was not found");
             }
+
             var lmsMembershipsAccessor = new LmsMemberships();
             var members = await lmsMembershipsAccessor.GetMemberships(lmsAssignment.CustomContextMembershipsUrl,
                 lmsAssignment.OAuthConsumerKey, "secret", lmsAssignment.ResourceLinkId);
-
+            
             return new OkObjectResult(members);
 
         }
 
         [FunctionName("GetAssignmentMember")]
         public static async Task<IActionResult> GetAssignmentMember(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "assignments/{assignmentGuid}/members/{memberId}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", 
+                Route = "assignments/{assignmentGuid}/members/{memberId}")] HttpRequest req,
             [Table("Assignments", Connection = "StorageConnection")] CloudTable assignments,
             string assignmentGuid,
             string memberId,
@@ -58,10 +61,11 @@ namespace AssignmentsManager
             var members = await membershipsManager.GetMemberships(lmsAssignment.CustomContextMembershipsUrl,
                 lmsAssignment.OAuthConsumerKey, "secret", lmsAssignment.ResourceLinkId);
 
-            var user = members.FirstOrDefault(member => member.Member.UserId == memberId);
+            var user = members.FirstOrDefault(member => member.UserId == memberId);
             if (user == null)
             {
-                return new NotFoundObjectResult($"User with Id {memberId} in Assignment with Guid {assignmentGuid} was not found");
+                return new NotFoundObjectResult(
+                    $"User with Id {memberId} in Assignment with Guid {assignmentGuid} was not found");
             }
 
             return new OkObjectResult(user);
