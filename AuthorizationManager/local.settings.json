@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "OAuthTokenRedirectUrl": "https://templatesmanager.azurewebsites.net/api/login/oauth2/token",
+    "StorageConnection": "DefaultEndpointsProtocol=https;AccountName=ednaserverlesstorage;AccountKey=Z4vuiVBEvtdGJWc2laGvsXSyiZhZbSJWD1FeCaZ/As017VGJhmL9ZSzFmIvPnzWwrlJwVgHWsxXniFISkh9w/Q==;EndpointSuffix=core.windows.net"
+  }
+}

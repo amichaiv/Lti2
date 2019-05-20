@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -16,9 +17,10 @@ namespace AssignmentsManager
     {
         [FunctionName("GetAssignmentMembers")]
         public static async Task<IActionResult> GetAssignmentMembers(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", 
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post",
                 Route = "assignments/{assignmentGuid}/members")] HttpRequest req,
             [Table("Assignments", Connection = "StorageConnection")] CloudTable assignments,
+            [Table("Authentication", Connection = "StorageConnection")] CloudTable authenticationTable,
             string assignmentGuid,
             ILogger log)
         {
@@ -31,19 +33,17 @@ namespace AssignmentsManager
             {
                 return new NotFoundObjectResult($"Assignment with Guid {assignmentGuid} was not found");
             }
-            var lmsMembershipsAccessor = new LmsMemberships();
-            var members = await lmsMembershipsAccessor.GetMemberships(lmsAssignment.CustomContextMembershipsUrl,
-                lmsAssignment.OAuthConsumerKey, "secret", lmsAssignment.ResourceLinkId);
-            
+            var members = await GetMembersAsync(req, authenticationTable, log, lmsAssignment);
             return new OkObjectResult(members);
 
         }
 
         [FunctionName("GetAssignmentMember")]
         public static async Task<IActionResult> GetAssignmentMember(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", 
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post",
                 Route = "assignments/{assignmentGuid}/members/{memberId}")] HttpRequest req,
             [Table("Assignments", Connection = "StorageConnection")] CloudTable assignments,
+            [Table("Authentication", Connection = "StorageConnection")] CloudTable authenticationTable,
             string assignmentGuid,
             string memberId,
             ILogger log)
@@ -57,11 +57,9 @@ namespace AssignmentsManager
             {
                 return new NotFoundObjectResult($"Assignment with Guid {assignmentGuid} was not found");
             }
-            var membershipsManager = new LmsMemberships();
-            var members = await membershipsManager.GetMemberships(lmsAssignment.CustomContextMembershipsUrl,
-                lmsAssignment.OAuthConsumerKey, "secret", lmsAssignment.ResourceLinkId);
 
-            var user = members.FirstOrDefault(member => member.UserId == memberId);
+            var members = await GetMembersAsync(req, authenticationTable, log, lmsAssignment);
+            var user = members?.FirstOrDefault(member => member.UserId == memberId);
             if (user == null)
             {
                 return new NotFoundObjectResult(
@@ -69,6 +67,42 @@ namespace AssignmentsManager
             }
 
             return new OkObjectResult(user);
+        }
+
+        private static async Task<IEnumerable<Member>> GetMembersAsync(
+            HttpRequest req, CloudTable authenticationTable, 
+            ILogger log, LmsAssignment lmsAssignment)
+        {
+            var membershipsManager = new LmsMemberships();
+            IEnumerable<Member> members;
+            if (lmsAssignment.LmsProviderName == "moodle")
+            {
+                members = await membershipsManager.GetMemberships(lmsAssignment.CustomContextMembershipsUrl,
+                    lmsAssignment.OAuthConsumerKey, "secret", lmsAssignment.ResourceLinkId);
+            }
+            else
+            {
+                var oAuthEntity = await LoginOAuth.GetAsync(authenticationTable);
+                if (oAuthEntity == null)
+                {
+                    return null;
+                }
+                try
+                {
+                    members = await membershipsManager.GetMembershipsWithOAuth(
+                        lmsAssignment.CustomContextMembershipsUrl, oAuthEntity.AccessToken);
+                }
+                catch (ArgumentException e)
+                {
+                    log.LogInformation(e.Message);
+                    await LoginOAuth.RefreshAccessToken(authenticationTable, oAuthEntity);
+                    oAuthEntity = await LoginOAuth.GetAsync(authenticationTable);
+                    members = await membershipsManager.GetMembershipsWithOAuth(
+                        lmsAssignment.CustomContextMembershipsUrl, oAuthEntity.AccessToken);
+                }
+            }
+
+            return members;
         }
 
         private static async Task<LmsAssignment> GetLmsAssignment(CloudTable assignments, Guid guid)
@@ -80,5 +114,6 @@ namespace AssignmentsManager
             var queryResult = await assignments.ExecuteQuerySegmentedAsync(query, null);
             return queryResult.Results.FirstOrDefault();
         }
+
     }
 }

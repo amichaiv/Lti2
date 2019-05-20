@@ -35,11 +35,22 @@ namespace TemplatesManager
 
         private static Assignment ParseToAssignment(LtiRequest ltiRequest)
         {
-            var ltiRequestCustomParameters = ltiRequest.CustomParameters;
-            var customParams = ltiRequestCustomParameters.Split('&');
-            var membershipsUrlStatement = customParams.FirstOrDefault(param => param.Contains("custom_context_memberships_url"));
-            var membershipsValue = membershipsUrlStatement?.Split('=')[1];
-            
+            string membershipsValue;
+            if (ltiRequest.ToolConsumerInfoProductFamilyCode == "moodle")
+            {
+                var ltiRequestCustomParameters = ltiRequest.CustomParameters;
+                var customParams = ltiRequestCustomParameters.Split('&');
+                var membershipsUrlStatement =
+                    customParams.FirstOrDefault(param => param.Contains("custom_context_memberships_url"));
+                membershipsValue = membershipsUrlStatement?.Split('=')[1];
+            }
+            else
+            {
+                // Todo: Get URl from some parameter like outcomeserviceurl
+                // Note: I couldn't find any parameter about the courseId
+                membershipsValue = $"http://13.93.45.80/lti/courses/1/membership_service";
+            }
+
             Assignment assignment = new Assignment
             {
                 CourseName = ltiRequest.ContextTitle,

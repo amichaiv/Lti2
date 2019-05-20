@@ -9,6 +9,7 @@ namespace AssignmentsManager
         public string OAuthConsumerKey { get; set; }
         public string ResourceLinkId { get; set; }
         public string ResultSourcedId { get; set; }
+        public string LmsProviderName { get; set; }
 
         public LmsAssignment()
         {
