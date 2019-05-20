@@ -51,6 +51,8 @@ namespace TemplatesManager
                 CustomContextMembershipsUrl = membershipsValue,
                 OAuthConsumerKey = ltiRequest.ConsumerKey,
                 ResourceLinkId = ltiRequest.ResourceLinkId,
+                ResourceLinkTitle = ltiRequest.ResourceLinkTitle,
+                ResourceLinkDescription = ltiRequest.ResourceLinkDescription,
                 PartitionKey = $"{ltiRequest.ToolConsumerInstanceName}",
                 RowKey = $"{ltiRequest.ContextId}_{ltiRequest.ResourceLinkId}"
             };

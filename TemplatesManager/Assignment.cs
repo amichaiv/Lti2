@@ -11,6 +11,8 @@ namespace TemplatesManager
         public string CustomContextMembershipsUrl { get; set; }
         public string OAuthConsumerKey { get; set; }
         public string ResourceLinkId { get; set; }
+        public string ResourceLinkTitle { get; set; }
+        public string ResourceLinkDescription { get; set; }
         public string CourseName { get; set; }
         public string LmsInstanceName { get; set; }
         public string LmsProviderName { get; set; }
